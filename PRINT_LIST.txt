@@ -1,0 +1,101 @@
+THINGY HOOK MOUNT v2.5 - tight hook fit + retainer bolt (strong rod, stops, DS3235, tall box)
+Same mechanism as v2.1 (roughly 70-90 deg of servo travel between closed and open). Every part is already turned
+to its print orientation: just drop it on the plate.
+
+File                                     Qty  Notes
+1_Top_Plate.stl                           1   unchanged. Flat, no supports. 3 walls, 25%
+2_Hook_Frame_v2.5.stl                     1   v2.4 frame + a 6.6 mm hole through the far wall (or drill yours, see below). Upside down as exported,
+                                              BRIM. 4 walls, 40% gyroid
+3_Thingy_v3_Hook_v2.5_tight_fit.stl       1   NEW in v2.5. Arm-pocket face down, tree supports under the hook arm.
+                                              PETG or PC, 6 walls, 100% infill (it is only ~15 cm3)
+4_Electronics_Box_v2.3_tall.stl           1   same as v2.3. Closed top down, no supports. 3 walls, 20%.
+                                              146 x 105 x 59.5 mm on the bed, up to about 130 g in PETG
+5_Electronics_Lid_Board_Tray_v2.3.stl     1   same as v2.3. Flat, no supports. 3 walls, 20%
+10_Hook_Retainer_Sleeve_print_x1.stl      2   NEW. 1 + 1 spare. Standing, 0.12 mm layers, 100%, PETG
+6_M6x16_Bolt_print_x12.stl               14   unchanged. 12 + 2 spare. Head down, 0.12 mm layers, 100%, PETG
+7_M6_Nut_print_x12.stl                   14   unchanged. 12 + 2 spare. Flat, 0.12 mm layers, 100%, PETG
+
+SERVO FASTENERS - pick ONE option (all three fit the same holes):
+9A_M4x14_Servo_Bolt_print_x4.stl          7   OPTION A, bolt. 4 + 2 spare, PLUS 1 for the hook retainer (always needed). Head down, 0.12 mm layers, 100%, PETG
+9B_M4_Servo_Lock_Pin_print_x4.stl         6   OPTION B, lock pin. 4 + 2 spare. Head down, 0.12 mm layers, 100%, PETG
+9_M4_Servo_Nut_print_x4.stl               6   nut for A or B. 4 + 2 spare. Flat, 0.12 mm layers, 100%, PETG
+8_Servo_Snap_Pin_print_x4.stl             6   old snap pins - still fit if you want them
+
+Print ONE M4 bolt and ONE M4 nut first (and test the bolt in the hook's tip thread). Tight -> scale the bolt to 98% in X/Y. Loose -> 101%.
+Metal hardware also fits: M4 x 12 or M4 x 14 bolts (not longer) and M4 nuts, including M4 NYLOCK nuts (best against vibration).
+
+WHAT CHANGED IN v2.5 (hook was loose)
+- Why it wobbled: the servo end of the hook is held only by the metal arm sitting in the hook's pocket,
+  and that pocket had ~0.85 mm of play around the arm. The hook could also slide ~2+ mm toward the servo
+  (more if your arm sits further out), and only 5 mm of the rod sits in the far bearing.
+- Hook (part 3): 5 thin CRUSH RIBS around the arm's round hub and 4 on the walls of the arm slot. They
+  squash as you push the arm in and grip it tight (fits hubs about 15-16.4 mm, arms about 9-10.6 mm wide).
+  The bearing end is now 8.3 mm (was 8.0) in the frame's 8.6 mm hole, and has an M4 thread in its tip.
+- RETAINER: one printed M4x14 bolt goes from OUTSIDE the far end wall, through the little sleeve (part 10)
+  and into the thread in the hook's tip. The sleeve is 0.2 mm longer than the wall is thick, so the bolt
+  locks to the hook but never clamps the wall: the hook still turns freely, but can't slide more than
+  about 0.3 mm in or out, no matter where the servo arm sits. Checked in Fusion: 0.3 mm end play, 0.2 mm
+  side play at the bearing, 0-90 deg swing touches nothing, stops still catch the disc first.
+
+ASSEMBLY (changes)
+1. Frame: if you already printed the v2.4 frame you don't need to reprint it - drill a 6.5 mm hole
+   straight through the far end wall, behind the hook's bearing hole. On the OUTSIDE of that wall the
+   centre is: middle of the wall side-to-side, 12 mm up from the wall's bottom edge. Drill 3 mm first,
+   check it comes out in the middle of the bearing hole, then open it to 6.5 mm.
+2. Push the metal arm into the hook's pocket firmly (or press the servo in) - the ribs should squash.
+   If it really won't go, shave the ribs a little with a knife, don't sand the pocket walls.
+3. Put the hook in as before (bearing end into the far hole), then from OUTSIDE the far wall: sleeve
+   into the hole, M4x14 bolt through it into the hook. Hold the hook and tighten the bolt firmly.
+   The hook must still turn by hand; if it drags, the sleeve is printed short - print the spare.
+4. If the 8.3 mm bearing end is tight in the frame, ream the frame hole with an 8.5 mm bit by hand.
+
+WHAT CHANGED IN v2.4 (why the rod snapped, and the fix)
+- At CLOSED (0 deg) the hook's tip sits only 1.8 mm from the keeper rib on the frame. If the servo goes
+  ~2 deg past 0 (or is sent to the wrong end), the hook jams against the frame and the full servo torque
+  (up to 35 kg.cm) twists the 8 mm rod: about 34 MPa, more than printed PETG layers can take.
+- Hook (part 3): the rod between the drive disc and the collar is now 14 mm thick (was 8) with 45 deg
+  tapers at both ends instead of sharp steps, the collar is 18 mm (was 16), and the inside corner where
+  the hook arm meets the collar has a brace. Same jam now = about 6 MPa in the rod (5x lower).
+  The end that sits in the frame's bearing is still 8 mm, so the rest of the frame fit is unchanged.
+- Frame (part 2): two small stop blocks on the inside of the servo wall. They catch the DRIVE DISC
+  (the part the servo arm sits in) at about -1.25 deg and +96 deg, so if the servo over-travels it
+  pushes against the frame directly and the rod and hook arm carry nothing.
+  Checked in Fusion: on the closed side the disc hits its stop at -1.25 deg, the hook would only have
+  reached the keeper rib at -2.25 deg; on the open side the stop catches at 96 deg (hook would hit the
+  frame at about 140 deg). Normal 0-90 deg swing touches nothing.
+- The new hook also fits the v2.2/v2.3 frame (no stops then). Print both for the full fix.
+
+FIRMWARE: use firmware/Drone_Hook_HM10. The hook needs roughly a 70-90 deg swing from CLOSED to OPEN.
+The exact servo numbers depend on how the arm sits on the spline (on the prototype: OPEN 50, CLOSE 120);
+find yours with + / - and save them with so / sc. If the servo buzzes at either end it is pushing on
+a stop: move that position 1-2 degrees toward the middle. Don't use the Thingy Hook v3 (0-90-180) sketch.
+
+EARLIER (v2.3)
+- Electronics box inside is now 120 wide x 100 long x 57 mm tall (v2.2 was 100 x 100 x 32).
+  The HM-10 (about 40.5 x 16.7 x 4 mm board) stands up in the breadboard on its pin header and its top
+  is about 4.5 mm under the ceiling (more if your HM-10 length includes the pins).
+- The box grows DOWNWARD and sideways; it still hangs from the same 4 top-plate bolts, so the TOP PLATE
+  DOES NOT CHANGE. It now hangs about 25 mm lower than before (bottom of the lid ~62 mm below the plate,
+  lid bolt heads ~66 mm) and sticks out about 12.5 mm past each side of the 100 mm plate (26.5 mm counting the
+  lid and its ears). Check your landing gear clears it.
+- Lid ears, gussets, side-entry nut slots, USB hole, vents and power notch all moved to the new walls.
+  The Nano rail moved another 10 mm toward the USB wall so the port still lines up.
+- Same as v2.2: the servo M4 bolt / lock-pin options and nut pockets in the frame.
+
+SERVO FASTENING
+Option A - bolt: push the M4 nut into its pocket on the inside of the servo wall (turn the frame
+  upside down so the top two nuts stay in), put the bolt through the servo ear from outside and
+  tighten with a 7 mm wrench or pliers. Snug, then stop - don't crush the ear.
+Option B - lock pin: same, but the head has a screwdriver slot. Once tight, push a piece of
+  paperclip or thin wire (max 1.5 mm) through the small hole at the tip and bend it over, so the
+  nut physically can't unscrew. Like the safety wire on aircraft bolts.
+Check before each flight: every nut still tight against the wall and nothing has backed out.
+
+CHECKED IN FUSION
+- No parts overlap (only the modelled M6 threads touch, as before). The HM-10 model stands in the
+  breadboard with 4.5 mm to spare under the ceiling. The M4 bolts, pins and old
+  snap pins all fit the same holes with nothing touching.
+- Hook and arm swing 0 to 90 deg (every 10 deg) without touching the frame, the stops or any fastener.
+- The servo with its arm still slides in through the opening with the nuts already in their pockets.
+- The servo with its arm still slides in past the new stops.
+- All new STL files are watertight.
